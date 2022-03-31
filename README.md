@@ -30,7 +30,7 @@ Merge(&target, &source1)
 // {Name: "Jack", Age: 35}
 ```
 
-## Depencencies
+## Inspired by
 * [InVisionApp/conjungo](https://github.com/InVisionApp/conjungo) - A small flexible merge library in go.
 * [MDN: Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) - A JavaScript library for merging objects.
 
