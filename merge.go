@@ -2,6 +2,7 @@ package merge
 
 import (
 	"errors"
+	"fmt"
 	"reflect"
 )
 
@@ -21,6 +22,7 @@ func merge(target interface{}, source interface{}) error {
 
 	// if source is nil or invalid, ignore and return
 	// @TODO
+	fmt.Println("kind:", vS.Kind())
 	if vS.Kind() == reflect.Invalid {
 		return nil
 	}
@@ -51,4 +53,12 @@ func merge(target interface{}, source interface{}) error {
 
 func overwrite(vT reflect.Value, key string, value reflect.Value) {
 	vT.FieldByName(key).Set(value)
+}
+
+func MergeMap(target, source map[string]interface{}) error {
+	for k, v := range source {
+		target[k] = v
+	}
+
+	return nil
 }

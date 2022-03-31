@@ -149,3 +149,30 @@ func TestMergeStructsNest(t *testing.T) {
 		t.Errorf("expected %s, got %s", "Anytown2", target.Address.City)
 	}
 }
+
+func TestMergeMap(t *testing.T) {
+	target := map[string]interface{}{
+		"name": "John",
+		"age":  30,
+	}
+	source := map[string]interface{}{
+		"name": "Jane",
+		"city": "Anytown",
+	}
+
+	if err := MergeMap(target, source); err != nil {
+		t.Fatal(err)
+	}
+
+	if target["name"] != "Jane" {
+		t.Errorf("expected %s, got %s", "Jane", target["name"])
+	}
+
+	if target["age"] != 30 {
+		t.Errorf("expected %d, got %d", 30, target["age"])
+	}
+
+	if target["city"] != "Anytown" {
+		t.Errorf("expected %s, got %s", "Anytown", target["city"])
+	}
+}
