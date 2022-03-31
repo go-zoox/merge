@@ -42,7 +42,7 @@ func merge(target interface{}, source interface{}) error {
 		key := fT.Name
 		value := vS.Elem().FieldByName(key)
 
-		// @TODO Nest => Recurrsion
+		// @TODO Nest => Should Recurrsion Deep or Shallow ?
 		overwrite(vT, key, value)
 	}
 
